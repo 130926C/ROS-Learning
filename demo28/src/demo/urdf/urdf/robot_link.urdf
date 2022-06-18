@@ -1,0 +1,25 @@
+<robot name="mycar">
+    <!-- 添加底盘 -->
+    <link name="base_link">
+        <!-- 给底盘增加可视化信息 -->
+        <visual>
+            
+            <!-- 形状 -->
+            <geometry>
+                <!-- <box size="0.3 0.2 0.1" /> -->
+                <!-- <cylinder radius="0.1" length="2" /> -->
+                <!-- <sphere radius="1" /> -->
+                <mesh filename="package://demo/meshes/autolabor_mini.stl"/>
+            </geometry>
+
+            <!-- 位置偏移量和弧度 -->
+            <origin xyz="0 0 0" rpy="1.57 0 1.57"/>
+
+            <!-- 颜色 -->
+            <material name="car_color">
+                <color rgba="0.5 0.5 0.5 1" />
+            </material>
+
+        </visual>
+    </link>
+</robot>

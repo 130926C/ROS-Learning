@@ -1,0 +1,16 @@
+<launch>
+
+    <group ns="tutle_1">
+        <node pkg="turtlesim" type="turtlesim_node" name="my_turtle" output="screen" />
+        <node pkg="turtlesim" type="turtle_teleop_key" name="my_key" output="screen" />
+        <param name="turtle_1_param_A" type="int" value="123"/>
+    </group>
+
+    <group ns="tutle_2">
+        <node pkg="turtlesim" type="turtlesim_node" name="my_turtle" output="screen" />
+        <node pkg="turtlesim" type="turtle_teleop_key" name="my_key" output="screen" />
+        <param name="turtle_1_param_A" type="int" value="123"/>
+    </group>
+
+</launch>
+

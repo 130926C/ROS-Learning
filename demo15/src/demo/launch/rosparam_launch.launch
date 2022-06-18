@@ -1,0 +1,14 @@
+<!-- rosparam -->
+
+<launch>
+    <rosparam command="load" file="${find demo}/launch/params.yaml"/>
+
+    <node pkg="demo" type="launch_node" name="my_launch" output="screen">
+        <rosparam command="load" file="$(find demo)/launch/params.yaml"/>
+    </node>
+
+    <rosparam command="dump" file="${find demo}/launch/params_out.yaml"/>
+
+    <rosparam command="delete" param="param_A" />
+
+</launch>

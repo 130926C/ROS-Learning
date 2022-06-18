@@ -1,0 +1,10 @@
+<!-- param 标签传递参数-->
+
+<launch>
+    <param name="param_A" type="int" value="100" />
+    
+    <node pkg="demo" type="launch_node" name="my_launch" output="screen">
+        <param name="param_B" type="int" value="13" />
+    </node>
+
+</launch>

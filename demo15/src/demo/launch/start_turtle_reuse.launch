@@ -1,0 +1,6 @@
+<!-- 需要复用 start_turtle.launch 中的节点以及配置-->
+<launch>
+    <include file="$(find demo)/launch/start_turtle.launch" />
+    
+    <!-- 启动其他节点 -->
+</launch>                                                                                                                                                           

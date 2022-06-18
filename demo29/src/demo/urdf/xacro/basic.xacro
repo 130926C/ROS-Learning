@@ -1,0 +1,22 @@
+<robot name="mycar" xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <!-- 1.属性定义 -->
+    <xacro:property name="PI" value="3.1415926" />
+    <xacro:property name="radius" value="0.03" />
+    <!-- 属性调用 -->
+    <myUseProperty name="${PI}"/>
+    <!-- 算术运算 -->
+    <myCalculater name="${PI * 3}" />
+
+    <!-- 2.宏定义 -->
+    <xacro:macro name="getSum" params="num1 num2" >
+        <result value="${num1 + num2}" />
+    </xacro:macro>
+    <!-- 宏调用 -->
+    <xacro:getSum num1="1" num2="5" />
+
+    <!-- 3.文件包含 -->
+    <xacro:inlcude filename="others.xacro" />
+
+
+
+</robot>

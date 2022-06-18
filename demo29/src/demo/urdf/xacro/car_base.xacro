@@ -1,0 +1,100 @@
+<robot name="mycar" xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <!-- 0.封装全局变量 -->
+    <xacro:property name="PI" value="3.1415926" />
+
+    <!-- 1.footprint -->
+    <!--   需要封装一个小球直径-->
+    <xacro:property name="footprint_r" value="0.001"/>
+    <link name="base_footprint">
+        <visual>
+            <geometry>
+                <sphere radius="${footprint_r}"/> 
+            </geometry>
+        </visual>
+    </link>
+
+    <!-- 2.底盘 -->
+    <xacro:property name="car_base_radius" value="0.1" />
+    <xacro:property name="car_base_length" value="0.08" />
+    <xacro:property name="grand_dis" value="0.015" />
+    <xacro:property name="car_base_bias_z" value="${car_base_length / 2 + grand_dis}" />
+
+    <link name="car_base">
+        <visual>
+            <geometry>
+                <cylinder radius="${car_base_radius}" length="${car_base_length}"/>
+            </geometry>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <material name="gray">
+                <color rgba="0.5 0.5 0.5 0.5" />
+            </material>
+        </visual>
+    </link>
+
+    <joint name="foot_print2car_base" type="fixed">
+        <parent link="base_footprint" />
+        <child link="car_base" />
+        <origin xyz="0 0 0.055" rpy="0 0 0" />
+    </joint>
+
+    <!-- 3.车轮 -->
+    <xacro:property name="wheel_radius" value="0.0325" />
+    <xacro:property name="wheel_length" value="0.015" />
+    <xacro:property name="wheel_bias_z" value="${-1 * (car_base_length / 2 + grand_dis - wheel_radius)}" />
+
+    <!-- 
+        wheel_name: left or right
+        flag: 1 or -1
+    -->
+    <xacro:macro name="wheel_func" params="wheel_name flag">
+        <link name="${wheel_name}_wheel"> 
+            <visual>
+                <geometry>
+                    <cylinder radius="${wheel_radius}" length="${wheel_length}" />
+                </geometry>
+                <origin xyz="0 0 0" rpy="${PI / 2} 0 0" />
+                <material name="red">
+                    <color rgba="1 0 0 0.5" />
+                </material>
+            </visual>
+        </link>
+
+        <joint name="${wheel_name}2link" type="continuous">
+            <parent link="car_base" />
+            <child link="${wheel_name}_wheel" />
+            <origin xyz="0 ${0.1 * flag} ${wheel_bias_z}" rpy="0 0 0" />
+            <axis xyz="0 1 0" />
+        </joint>
+    </xacro:macro>
+
+    <xacro:wheel_func wheel_name="left" flag="1" />
+    <xacro:wheel_func wheel_name="right" flag="-1" />
+
+    <!-- 4.万向轮 -->
+    <xacro:property name="small_wheel_radius" value="0.0075"/>
+    <xacro:property name="small_wheel_bias_z" value="${(car_base_length / 2 + grand_dis - small_wheel_radius) * -1 }" />
+
+    <xacro:macro name="small_wheel_func" params="small_wheel_name flag">
+        <link name="${small_wheel_name}_wheel">
+            <visual>
+                <geometry>
+                    <sphere radius="${small_wheel_radius}" />
+                </geometry>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <material name="blue">
+                    <color rgba="0 1 0 0.5" />
+                </material>
+            </visual>
+        </link>
+
+        <joint name="${small_wheel_name}_link" type="continuous">
+            <parent link="car_base" />
+            <child link="${small_wheel_name}_wheel" />
+            <origin xyz="${0.08 * flag} 0 ${small_wheel_bias_z}" rpy="0 0 0" />
+            <axis xyz="0 1 0" />
+        </joint>
+    </xacro:macro>
+
+    <xacro:small_wheel_func small_wheel_name="front" flag="1" />
+    <xacro:small_wheel_func small_wheel_name="back" flag="-1" />
+</robot>    

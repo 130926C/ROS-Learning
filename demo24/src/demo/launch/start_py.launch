@@ -1,0 +1,13 @@
+<launch>
+    <!-- 启动乌龟1 -->
+    <node pkg="turtlesim" type="turtlesim_node" name="turtle1" output="screen"/>
+    <node pkg="turtlesim" type="turtle_teleop_key" name="turtle1_key" output="screen"/>
+
+    <!-- 启动乌龟2 -->
+    <node pkg="demo" type="new_turtle.py" name="turtle2" output="screen"/>
+
+    <!-- 启动发布坐标系 -->
+    
+
+
+</launch>

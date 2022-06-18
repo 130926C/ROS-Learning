@@ -1,0 +1,8 @@
+<launch deprecated="此文件已经过时了，不建议使用">
+    <!--需要启动的节点-->
+    <node pkg="turtlesim" type="turtlesim_node" name="my_turtle" output="screen"/>
+    <node pkg="turtlesim" type="turtle_teleop_key" name="my_key" output="screen"/>
+
+    <node pkg="demo" type="launch_node" name="my_launch" output="screen" args="_length:=5" />
+
+</launch>

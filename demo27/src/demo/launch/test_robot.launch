@@ -1,0 +1,11 @@
+<launch>
+    <!-- 在参数服务器上加载 urdf 文件 -->
+    <param name="robot_description" textfile="$(find demo)/urdf/urdf/test_robot.urdf" />
+    <!-- 启动rviz -->
+    <!--
+        <node pkg="rviz" type="rviz" name="rviz" args="-d $(find demo)/config/show_mycar.rviz" />
+        在课程中使用的是这个方法，但貌似和anaconda冲突了，可以直接在命令行中敲入：rviz
+    -->
+    <node pkg="rviz" type="rviz" name="rviz" args="-d $(find demo)/config/show_mycar.rviz" />
+
+</launch>

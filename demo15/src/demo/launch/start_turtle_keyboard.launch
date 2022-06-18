@@ -1,0 +1,8 @@
+<!-- remap 重命名话题 -->
+<launch>
+    <node pkg="turtlesim" type="turtlesim_node" name="my_turtle" output="screen">
+        <remap from="turtle1/cmd_vel" to="cmd_vel" />
+    </node>
+    <node pkg="turtlesim" type="turtle_teleop_key" name="my_key" output="screen"/>
+
+</launch>

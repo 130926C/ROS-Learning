@@ -1,0 +1,13 @@
+<!-- 启动两个或多个乌龟节点 -->
+<launch>
+    <!-- 名称重映射 -->
+    <node pkg="turtlesim" type="turtlesim_node" name="tur_node" output="screen" />
+    <node pkg="turtlesim" type="turtlesim_node" name="tur_node1" output="screen" />
+
+    <!-- 命名空间 -->
+    <node pkg="turtlesim" type="turtlesim_node" name="tur_node" output="screen" ns="ergouzi"/>
+
+    <!-- 叠加 -->
+    <node pkg="turtlesim" type="turtlesim_node" name="tur_node1" output="screen" ns="ergouzi"/>
+
+</launch>

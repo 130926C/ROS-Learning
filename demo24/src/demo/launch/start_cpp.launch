@@ -1,0 +1,15 @@
+<launch>
+    <!-- 生成可操控的小乌龟 -->
+    <node pkg="turtlesim" type="turtlesim_node" name="turtle1" output="screen"/>
+    <node pkg="turtlesim" type="turtle_teleop_key" name="turtle1_key" output="screen" />
+
+    <!-- 生成一个小乌龟 -->
+    <node pkg="demo" type="new_turtle_node" name="turtle2" output="screen"/>
+
+    <!-- 发布两个乌龟相对于世界坐标系的关系 -->
+    <node pkg="demo" type="turtle_pub_node" name="turtle1_pub" args="turtle1" output="screen"/>
+    <node pkg="demo" type="turtle_pub_node" name="turtle2_pub" args="turtle2" output="screen"/>
+
+    <!-- 订阅两只乌龟的坐标信息，并将乌龟1的坐标信息转化为乌龟2的坐标信息 -->
+    <node pkg="demo" type="turtle_control_node" name="turtle_control" output="screen"/>
+</launch>
