@@ -19,6 +19,7 @@
 
 ```shell
   $ mkdir -p demoX/src
+  $ cd demoX
   $ catkin_make
 ```
 
