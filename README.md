@@ -60,7 +60,7 @@ $ git clone git@github.com:130926C/ROS-Learning.git
 ```
 Step3:随便进入一个目录
 ```shell
-$ cd cd ROS-Learning/demo01
+$ cd ROS-Learning/demo01
 ```
 Step4:在当前目录下编译
 ```shell
