@@ -56,7 +56,7 @@ demo12:ROS日志信息，INFO、DEBUG、WARN、ERROR、FATAL
 
 demo13:使用自定义的.h和.cpp文件
 
-demo14:metspackage多个功能包管理
+demo14:metapackage多个功能包管理
 
 demo15:用launch文件启动小乌龟
 
