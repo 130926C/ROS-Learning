@@ -1,23 +1,38 @@
 # ROS Self-Learning
 
-这是一个ROS自学记录，主要的学习资料来源于B站 **赵虚左** 的视频课程，做这个仓库的主要意图在于方便查看各种配置文件。
+因工作需要使用到ROS，所以写了这个仓库作为学习日志。第一次尝试写这类日志还有很多不足的地方，如果大佬发现了那块存在问题可以直接和我的邮箱联系。343905080@qq.com
 
+## Description
+
+学习资料主要来源于以下内容：
+* [深蓝学院](https://www.shenlanxueyuan.com/my/course/92)
+* [B站赵虚左的视频课程](https://www.bilibili.com/video/BV1Ci4y1L7ZZ?spm_id_from=333.337.search-card.all.click);
+* [ROS wiki 官方学习资料](http://wiki.ros.org/ROS/Tutorials);
+
+
+除了上述学习资料外，还推荐以下三本参考书：
+* 《ROS机器人开发技术基础》，蒋畅江、罗云翔、张宇航等编著，化学工业出版社；
+* 《精通ROS机器人编程》，Lentin Joseph等编著，机械工业出版社；
+* 《视觉SLAM十四讲-从理论到实践》，高翔、张涛等著，电子工业出版社；
+
+关于这个仓库的文件夹名字描述
 * demoX:是每一个案例的文件夹；
 * SomethingError:是在学习过程中遇到的一些离奇报错以及应对方案；
+* ROSandXXX:是将ROS和其他库结合起来的demo，主要是机器视觉这一大块；
 
-
-这里使用的是vscode作为代码编写环境，然而由于vscode会生成.vscode文件夹，这个文件夹根据本机的环境会生成不同的内容。
+## Notes
+这里使用的是vscode作为代码编写环境，然而由于vscode会生成.vscode文件夹，这个文件夹中的文件内容会根据本机的环境会生成不同的内容。
 
 如果想要参考的话最好先读每一个demo中的ReadMe文件，里面会写一些前期流程。
 
 在安装ROS-noetic的时候，遇到任何报错都应该当场解决，否则后面会无法推进。
 
-【注】在demo01～demo30的时候使用的都是ros-noetic，后面由于工作需要改成了ros-melodic，但大体内容不受影响，主要的变动的是在
+【注】在demo01～demo29的时候使用的都是ros-noetic，后面由于工作需要改成了ros-melodic，但大体内容不受影响，主要的变动的是在 .vscode 文件夹下的 c_cpp_properties.json 部分，并且有且仅有添加 inlcude 文件路径时会有变动。
 
 如果你使用的也是vscode的话需要安装以下插件：
 * C/C++
 * C/C++ Extension Pack
-* ROS
+* ROS (这个非常重要，因为可以直接右键创建ros的package，不用再使用命令行创建功能包)
 
 每一个demo无论是否使用到代码实现节点（ROS可以直接使用launch文件启动节点）都执行了以下操作来确保整体风格
 
@@ -27,10 +42,18 @@
   $ catkin_make
 ```
 
+这里使用到的 .gitignore 
 
------------
+```txt
+devel
+build
+```
 
-demo01:简单话题通讯
+-----
+
+## Contents
+
+[**demo01**](demo1):简单话题通讯，发布者订阅者模式
 
 demo02:在demo01的基础上对发布在话题上的信息添加了变量
 
