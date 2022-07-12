@@ -53,69 +53,70 @@ build
 
 ## Contents
 
-[**demo01**](demo1):简单话题通讯，发布者订阅者模式
+**demo01**:简单话题通讯，发布者订阅者模式
 
-demo02:在demo01的基础上对发布在话题上的信息添加了变量
+**demo02**:在demo01的基础上对发布在话题上的信息添加了变量
 
-demo03:自定义话题通讯，通讯的内容使用msg文件指定
+**demo03**:自定义话题通讯，通讯的内容使用msg文件指定
 
-demo04:自定义服务，求两个数的和，使用srv文件定义服务元素
+**demo04**:自定义服务，求两个数的和，使用srv文件定义服务元素
 
-demo05:自定义参数服务器，在参数服务器上增删该查
+**demo05**:自定义参数服务器，在参数服务器上增删该查
 
-demo06:使用话题订阅模式控制小乌龟运动
+**demo06**:使用话题订阅模式控制小乌龟运动
 
-demo07:在小乌龟运动的时候以订阅的方式输出Pose信息
+**demo07**:在小乌龟运动的时候以订阅的方式输出Pose信息
 
-demo08:创建多个乌龟
+**demo08**:创建多个乌龟
 
-demo09:修改参数服务器上的参数，从而改变小乌龟对话框的背景颜色
+**demo09**:修改参数服务器上的参数，从而改变小乌龟对话框的背景颜色
 
-demo10:节点复用 & 在启动节点的时候给参数服务器设置值
+**demo10**:节点复用 & 在启动节点的时候给参数服务器设置值
 
-demo11:获取ROS中的当前时刻以及指定时间
+**demo11**:获取ROS中的当前时刻以及指定时间
 
-demo12:ROS日志信息，INFO、DEBUG、WARN、ERROR、FATAL
+**demo12**:ROS日志信息，INFO、DEBUG、WARN、ERROR、FATAL
 
-demo13:使用自定义的.h和.cpp文件
+**demo13**:使用自定义的.h和.cpp文件
 
-demo14:metapackage多个功能包管理
+**demo14**:metapackage多个功能包管理
 
-demo15:用launch文件启动小乌龟
+**demo15**:用launch文件启动小乌龟
 
-demo16:关于不同工作空间内的节点重名
+**demo16**:关于不同工作空间内的节点重名
 
-demo17:用命令行和launch文件的方式实现节点复用
+**demo17**:用命令行和launch文件的方式实现节点复用
 
-demo18:对话题进行重命名
+**demo18**:对话题进行重命名
 
-demo19:参数服务器上的全局与私有参数
+**demo19**:参数服务器上的全局与私有参数
 
-demo20:分布式ROS通讯
+**demo20**:分布式ROS通讯
 
-demo21:TF静态坐标变化(话题订阅)
+**demo21**:TF静态坐标变化(话题订阅)
 
-demo22:Rviz和动态坐标变化(话题订阅)
+**demo22**:Rviz和动态坐标变化(话题订阅)
 
-demo23:多个静态坐标系变化(launch & 话题订阅)
+**demo23**:多个静态坐标系变化(launch & 话题订阅)
 
-demo24:使用坐标信息实现小乌龟跟踪
+**demo24**:使用坐标信息实现小乌龟跟踪
 
-demo25:rosbag录制操作并回放
+**demo25**:rosbag录制操作并回放
 
-demo26:使用rqt工具箱以及rqt-plot绘制小乌龟pose信息
+**demo26**:使用rqt工具箱以及rqt-plot绘制小乌龟pose信息
 
-demo27:URDF机器人建模，在rviz中显示一个正方体
+**demo27**:URDF机器人建模，在rviz中显示一个正方体
 
-demo28:URDF组合机器人，使用link和joint
+**demo28**:URDF组合机器人，使用link和joint
 
-demo29:使用xacro代替URDF构建机器人
+**demo29**:使用xacro代替URDF构建机器人
 
-demo30:使用xacro的include方式组装小车
+**demo30**:使用xacro的include方式组装小车
 
-demo31:使用Actionlib实现双向Server-Client通讯
+**demo31**:使用Actionlib实现双向Server-Client通讯
 
-demo32(未完):使用Arbotix控制小车运动
+**demo32**(未完):使用Arbotix控制小车运动
 
-ROSandOpenCV:ROS和OpenCV的结合使用，发布订阅视频流和单个图片
+**ROSandOpenCV**:ROS和OpenCV的结合使用，发布订阅视频流和单个图片
 
+**SomethingErro/**:记录了一些常见的bug，包括编译和运行过程中的
