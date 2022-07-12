@@ -2,13 +2,13 @@
   "configurations": [
     {
       "browse": {
-        "databaseFilename": "${workspaceFolder}/.vscode/browse.vc.db",
+        "databaseFilename": "${default}",
         "limitSymbolsToIncludedHeaders": false
       },
       "includePath": [
-        "/opt/ros/noetic/include/**",
-        "/home/lucks/Desktop/code/ROS/demo30/src/demo/include/**",
-        "/usr/include/**"
+        "/opt/ros/melodic/include/**",
+        "/usr/include/**",
+        "/home/gaohao/Desktop/ROS-Learning/demo31/devel/include"
       ],
       "name": "ROS",
       "intelliSenseMode": "gcc-x64",
