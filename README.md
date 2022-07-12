@@ -48,6 +48,25 @@
 devel
 build
 ```
+-----
+## How to Use
+Step1:安装git
+```shell
+$ sudo apt-get install git
+```
+Step2:克隆这个仓库
+```shell
+$ git clone git@github.com:130926C/ROS-Learning.git
+```
+Step3:随便进入一个目录
+```shell
+$ cd cd ROS-Learning/demo01
+```
+Step4:在当前目录下编译
+```shell
+$ catkin_make
+```
+编译结束后会生成build、devel、.catkin_workspace文件，这些文件的具体使用和功能将在后面的demo中介绍。
 
 -----
 
