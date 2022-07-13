@@ -135,7 +135,7 @@ $ catkin_make
 
 **demo31**:使用Actionlib实现双向Server-Client通讯
 
-**demo32**(未完):使用Arbotix控制小车运动
+**demo32**:欧拉角、四元数、旋转矩阵
 
 **ROSandOpenCV**:ROS和OpenCV的结合使用，发布订阅视频流和单个图片
 

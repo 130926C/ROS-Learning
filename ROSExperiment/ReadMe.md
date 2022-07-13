@@ -10,7 +10,7 @@
 
 **Exercise02**:这个实验验证了ROS Server-Client 模式之间的数量关系，一个Server命题在当前是独占的，如果此时有另外一个相同命题Server B上线则会挤调前一个Server A，即便是Server B下线了，Server A也无法继续提供服务。
 
-
+**Exercise03（未完）**:这个实验验证了ROS Server-Client 模式在多线程条件下的情况。
 
 
 
