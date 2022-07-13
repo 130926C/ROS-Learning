@@ -19,6 +19,7 @@
 * demoX:是每一个案例的文件夹；
 * SomethingError:是在学习过程中遇到的一些离奇报错以及应对方案；
 * ROSandXXX:是将ROS和其他库结合起来的demo，主要是机器视觉这一大块；
+* ROSExperiment:是对上面教材的课后题以及一些实验验证；
 
 ## Notes
 这里使用的是vscode作为代码编写环境，然而由于vscode会生成.vscode文件夹，这个文件夹中的文件内容会根据本机的环境会生成不同的内容。
