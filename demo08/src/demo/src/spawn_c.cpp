@@ -1,7 +1,7 @@
 #include "ros/ros.h"
 #include "turtlesim/Spawn.h"
 
-
+// 下面是B站视频上的代码部分，使用的是Client方式创建服务
 int main(int argc, char *argv[]){
     ROS_INFO("Create a New turrle [CPP]");
     // 1.初始化节点
@@ -26,6 +26,25 @@ int main(int argc, char *argv[]){
         client.call(add_new);
         ROS_INFO("Turtle %s crated at [%.2f,%.2f]", name, add_new.request.x, add_new.request.y);
     }
+
+    return 0;
+}
+
+// 其实ROS提供了直接call server的方式，如下
+//      使用ros::service::call这种方式就可以少创建一个client对象，对于没有什么交互的需求而言是比较合适的
+int main_(int argc, char* argv[]){
+    ros::init(argc, argv, "NT_node");
+    ros::NodeHandle hd;
+
+    turtlesim::Spawn spawn;
+    spawn.request.name = "zhang3";
+    spawn.request.theta = 0.0;
+    spawn.request.x = 2.0;
+    spawn.request.y = 3.0;
+
+    // 【注意】这里有一个坑点，需要先等 /spawn 服务被拉起来后再去call它，要不然在窗口上是不显示的。
+    ros::service::waitForService("/spawn");
+    ros::service::call("/spawn",spawn);
 
     return 0;
 }

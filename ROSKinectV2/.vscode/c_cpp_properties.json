@@ -2,7 +2,7 @@
   "configurations": [
     {
       "browse": {
-        "databaseFilename": "${workspaceFolder}/.vscode/browse.vc.db",
+        "databaseFilename": "${default}",
         "limitSymbolsToIncludedHeaders": false
       },
       "includePath": [
@@ -13,7 +13,7 @@
       "intelliSenseMode": "gcc-x64",
       "compilerPath": "/usr/bin/gcc",
       "cStandard": "gnu11",
-      "cppStandard": "c++17"
+      "cppStandard": "c++14"
     }
   ],
   "version": 4
