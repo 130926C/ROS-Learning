@@ -1,13 +1,25 @@
 #include "ros/ros.h"
 #include "std_msgs/String.h"
 #include "demo/count.h"
+#include <thread>
+#include <iostream>
 
 bool DealCountRequirest(
     demo::countRequest &req, 
     demo::countResponse &res
-){
-    
+){ 
+    ros::Rate rate(1);
+    std::thread::id tid = std::this_thread::get_id();
+    std::cout << "\tThread " << tid << " processing " << req.clientID << " client ID"<< std::endl;
+    for(int i = req.num1; i < req.num2; ++i){
+        ROS_INFO("Client ID=%d, value=%d", req.clientID, i);
+        rate.sleep();
+    }
+    res.result = -1;
+
+    return true;
 }
+
 
 int main(int argc, char *argv[]){
     if (argc != 2){
@@ -20,7 +32,8 @@ int main(int argc, char *argv[]){
     ros::MultiThreadedSpinner mTSpinner(4);
     ros::AsyncSpinner aSSpinner(4);
 
-    ros::ServiceServer server = hd.advertiseService<demo::count>("count_server", DealCountRequirest);
+    ros::ServiceServer server = hd.advertiseService("count_server", DealCountRequirest);
+    
     switch (atoi(argv[1]))
     {
     case 0:
