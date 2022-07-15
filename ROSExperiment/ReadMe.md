@@ -12,5 +12,9 @@
 
 **Exercise03**:这个实验验证了ROS Server-Client 模式在多线程条件下的情况。
 
+**Exercise04**:这个实验测试了ROS中多个静态坐标系下的随机点位置变化，静态的含义是坐标系静态，而不是点是静态的，同时发现了ROS中的几个坑点，特别是 **StaticTransformBroadcaster** 和 **TransformBroadcaster** 不可乱用。
+
+**Exercise05**:这个实验测试了ROS中多个动态坐标系下的随机点位置变化，和静态转化不同的是，在调用转化计算的时候不能使用 **ros::Time::now()**而应该使用**ros::Time()**让ROS自己找最近的时间戳。
+
 
 
