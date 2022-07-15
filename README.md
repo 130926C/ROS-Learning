@@ -46,8 +46,12 @@
 这里使用到的 .gitignore 
 
 ```txt
-devel
-build
+*.bin
+devel/
+build/
+*.db
+*.vc.db-shm
+*.vc.db-wal
 ```
 -----
 ## How to Use
