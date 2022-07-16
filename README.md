@@ -141,6 +141,8 @@ $ catkin_make
 
 **demo32**:欧拉角、四元数、旋转矩阵
 
+**demo33**:GUI界面的动态参数服务器、参数发布与订阅
+
 **ROSandOpenCV**:ROS和OpenCV的结合使用，发布订阅视频流和单个图片
 
 **SomethingErro/**:记录了一些常见的bug，包括编译和运行过程中的
