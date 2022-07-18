@@ -83,4 +83,5 @@ $ rosservice list
 	/kill
 	/reset
 ```
-发现这服务就叫 /clear，那么就直接发送这个请求给 server 就可以了。具体代码实现在
+发现这服务就叫 /clear，那么就直接发送这个请求给 server 就可以了，或者重启小乌龟的GUI界面。具体代码实现在文件中可见。
+

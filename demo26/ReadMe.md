@@ -6,13 +6,20 @@ $ sudo apt-get install ros-noetic-rqt
 $ sudo apt-get install ros-noetic-rqt-common-plugins
 ```
 
-启动（二选一）：
+启动方式一：启动完整的rqt套件
 ```shell
 $ rqt
+```
+
+启动方式二：仅启动单个rqt_gui部件
+
+```shell
 $ rosrun rqt_gui rqt_gui
 ```
 
--------
+
+
+-----
 
 ### rqt-concle查看日志信息
 
@@ -73,5 +80,4 @@ $ rosrun turtlesim turtle_teleop_key
 1. 在rqt中选择 “Plugins” -> "Logging" -> "Bag"。
 2. 点击红色按钮旁边的文件夹，播放。
 3. 在蓝色的进度条上右击选择 “Publish” 才能发布。
-
 

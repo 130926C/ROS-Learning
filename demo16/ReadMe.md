@@ -32,6 +32,5 @@
 	$ echo $ROS_PACKAGE_PATH
 		/home/lucks/Desktop/code/ROS/demoX/src:/home/lucks/Desktop/code/ROS/demo16/src:/opt/ros/noetic/share:
 ```
-路径中哪个在前面就先调用哪个。
-
+上面的路径中哪个在前面就先调用哪个。
 

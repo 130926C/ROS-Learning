@@ -3,6 +3,9 @@
 ### 命令行方式实现 rosbag
 
 rosbag录制操作并回放。
+
+使用rosbag回放的过程是将执行过的命令再执行一次，之前执行的仍会被保留。
+
 1. 新建一个目录用来存放rosbag的回放信息。
 2. 使用如下命令开始录制：
 ```shell
@@ -166,5 +169,4 @@ for(rosbag::MessageInstance const m: rosbag::View(bag)){
 }
 ```
 这里rosbag提供了一个View的方法用来读取数据，返回一个有迭代器的对象。
-
 

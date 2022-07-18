@@ -1,0 +1,15 @@
+<launch>
+    <param name="robot_description" command="$(find xacro)/xacro $(find demo)/urdf/xacro/car.xacro"/>
+
+    <node pkg="rviz" type="rviz" name="rviz" />
+    <node pkg="joint_state_publisher" type="joint_state_publisher" name="joint_state_publisher" />
+    <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" />
+
+    <!-- 集成 arbotix 控制节点 & 加载参数-->
+    <node pkg="arbotix_python" type="arbotix_driver" name="control_node" output="screen">
+        <!-- 加载参数 -->
+        <rosparam command="load" file="$(find demo)/config/control.yaml" />
+        <!-- 开启仿真 -->
+        <param name="sim" value="true" />
+    </node>
+</launch>

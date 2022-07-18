@@ -1,0 +1,13 @@
+controllers: {
+  base_controller: {
+    type: diff_controller, 
+    base_frame_id: footprint,
+    base_width: 0.2, 
+    ticks_meter: 2000,
+    Kp: 12, 
+    Kd: 12,
+    Ki: 0,
+    Ko: 52,
+    acc_limit: 1.0
+  }
+}

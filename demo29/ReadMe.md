@@ -4,7 +4,7 @@ URDF 中存在以下两个主要问题：
 1. 坐标位置换算太复杂，并且参数被写死，不容易改变参数；
 2. 大量的代码其实可以复用；
 
-为了解决上面两个问题，ROS提供了 xacro 语言。
+为了解决上面两个问题，ROS提供了 xacro 语言，使用该语言能更快地定义模型。
 
 使用命令行运行文件：
 ```shell
@@ -196,5 +196,4 @@ $ rosrun xacro xacro test.xacro > test.urdf
 	<xacro:small_wheel_func small_wheel_name="back" flag="-1" />
 </robot>
 ```
-
 

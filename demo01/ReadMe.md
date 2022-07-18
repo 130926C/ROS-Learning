@@ -6,4 +6,4 @@
 2. tasks.json
 
 Note:  
-如果发布者只发布了一次消息但并没有使用 ros::Duration(1)的话，在terminal中使用 rostopic echo hello 很可能无法捕捉到消息。
+如果发布者只发布了一次消息但并没有使用 ros::Duration(1)的话，在terminal中使用 rostopic echo hello 很可能无法捕捉到消息，因为发布的速度太快以至于这边echo没有结束的时候那边的消息就发布完了。

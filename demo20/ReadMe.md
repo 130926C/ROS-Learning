@@ -6,6 +6,7 @@ ROS分布式通讯
 
 Step 1：双方添加IP地址
 修改 /etc/hosts 文件，将对方的 ip地址加入，主机名称可以用 hostname 获取。
+
 ```shell
 	$ hostname
 		thinkpad
@@ -15,6 +16,7 @@ Step 1：双方添加IP地址
 
 Step 2：让host文件生效
 最保险的方式就是重启，然后用ping检查链接情况。
+
 ```shell
 	$ ping IP_address or hostname
 ```
@@ -35,7 +37,7 @@ export ROS_MASTER_URI=http://主机IP：11311
 export ROS_HOSTNAME=从机IP
 ```
 
-IP地址后面的端口是可以变的，但一定要相同。
+IP地址后面的端口是可以随意指定的，但主从机上的这个数字一定要相同。
 
 最后都要source一下：
 ```shell

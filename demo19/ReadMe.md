@@ -4,7 +4,7 @@
 
 1. rosrun 方式
 2. launch 文件
-3. 编码方式
+3. 代码方式
 
 -----
 
@@ -90,5 +90,4 @@ rospy.set_param("param_relative", 20)
 # 3.私有
 rospy.set_param("~param_private", 30)
 ```
-
 

@@ -9,6 +9,8 @@
 需要准备的包如下：
 roscpp rospy tf2 tf2_ros geometry_msgs std_msgs tf2_geometry_msgs turtlesim
 
+【注意】如果在创建包的时候忘记添加，可以在后面CMakeLists.txt和package.xml文件中追加。
+
 ------
 
 ### Launch文件

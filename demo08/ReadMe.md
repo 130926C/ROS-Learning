@@ -128,7 +128,7 @@ $ rostopic pub /zhang3/cmd_vel geometry_msgs/Twist "linear:
 	  z: 1.0" 
 	publishing and latching message. Press ctrl-C to terminate
 ```
-乌龟它动了！说明这个思路是正确的，剩下就是代码实现。
+乌龟它动了！说明这个思路是正确的，剩下就是代码实现，详细内容查看cpp和py文件。
 
 ----
 

@@ -98,3 +98,9 @@ ros::spin()
 
 -----
 
+Add Experiment：获取前5秒的时刻
+
+```cpp
+ros::Time t1 = ros::Time() - ros::Duration(5);
+```
+

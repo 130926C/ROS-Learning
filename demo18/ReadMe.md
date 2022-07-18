@@ -75,6 +75,7 @@
 ```
 
 ```cpp
+这种规定也适用于服务类型。
 
 // A.全局话题：以 / 开头，此时和节点空间以及名字没有任何关系
 ros::Publisher pub_g = hd.advertise<std_msgs::String>("/global_topic", 10);
@@ -121,4 +122,3 @@ pub_r = rospy.Publisher("topic_relateive", String, queue_size=10)
 # C.私有
 pub_p = rospy.Publisher("~topic_private", String, queue_size=10)
 ```
-

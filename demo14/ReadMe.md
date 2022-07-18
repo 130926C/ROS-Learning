@@ -2,6 +2,8 @@
 
 多个功能包管理 metapackage。
 
+metapackage相当于使用了一个空包来管理其他包中全部的package。
+
 在这个demo中有两个已经编写好的功能包，分别是 服务-客户端的ros_cs 和 发布-订阅的ros_pub。
 
 这个demo展示了如何将这两个功能包封装进一个虚拟包中并调用。

@@ -2,7 +2,7 @@
 
 launch 文件。
 
-在这一以小乌龟案例为例，演示如何使用launch文件来启动这个例子。
+在这一以小乌龟案例为例，演示如何使用launch文件来启动这个例子。launch文件是后面很重要的内容，语法也很简单，务必熟练。
 
 -----
 
@@ -10,7 +10,7 @@ Step 1：在Create catkin make步骤中添加 turtlesim 依赖
 ```cpp
 rospy roscpp std_msgs turtlesim
 ```
- ---------
+---------
 
 Step 2：编写launch文件
 ```launch
