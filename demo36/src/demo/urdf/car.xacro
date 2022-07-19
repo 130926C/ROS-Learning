@@ -1,0 +1,9 @@
+<robot name="car" xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <!-- 添加惯性矩阵文件 -->
+    <xacro:include filename="head.xacro" />
+
+    <!-- 添加小车部件文件 -->
+    <xacro:include filename="car_base.xacro" />
+    <xacro:include filename="car_camera.xacro" />
+    <xacro:include filename="car_lader.xacro" />
+</robot>
