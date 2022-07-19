@@ -6,13 +6,20 @@
 2. 对每一个link添加collision和inertial标签，并重置颜色属性；
 3. 在launch中启动gazebo并添加机器人；
 
+在创建demo包的时候需要添加以下依赖：
+
+```txt
+urdf xacro gazebo_ros gazebo_ros_control gazebo_plugins 
+```
+
 -----
 
 ### **Sted 1** 封装惯性矩阵算法
 
-这部分在视频教程中是直接复制连接的，知乎**赵虚左**的文章[ROS入门教程-理论与实践（6.6.3 URDF集成Gazebo实操）](https://zhuanlan.zhihu.com/p/362287335)中直接复制过来就可以。
+这部分在视频教程中是直接复制连接的，知乎 **赵虚左** 的文章[ROS入门教程-理论与实践（6.6.3 URDF集成Gazebo实操）](https://zhuanlan.zhihu.com/p/362287335)中直接复制过来就可以。
 
 **head.xacro**
+
 ```xml
 <robot name="base" xmlns:xacro="http://wiki.ros.org/xacro">
     <!-- Macro for inertia matrix -->

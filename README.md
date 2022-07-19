@@ -143,6 +143,12 @@ $ catkin_make
 
 **demo33**:GUI界面的动态参数服务器、参数发布与订阅
 
+**demo34**:用arbotix控制小车在rviz中运动
+
+**demo35**:在gazebo中添加一个长方体
+
+**demo36**:给小车添加碰撞检测和惯性矩阵，并在gazebo中显示
+
 **ROSandOpenCV**:ROS和OpenCV的结合使用，发布订阅视频流和单个图片
 
 **SomethingErro/**:记录了一些常见的bug，包括编译和运行过程中的
