@@ -153,7 +153,7 @@ $ catkin_make
 
 **demo38**:URDF、Gazebo、Rviz综合使用
 
-**demo38**:Gazebo多种传感器（雷达、摄像头、深度相机）仿真
+**demo39**:Gazebo多种传感器（雷达、摄像头、深度相机）仿真
 
 **ROSandOpenCV**:ROS和OpenCV的结合使用，发布订阅视频流和单个图片
 
