@@ -149,6 +149,12 @@ $ catkin_make
 
 **demo36**:给小车添加碰撞检测和惯性矩阵，并在gazebo中显示
 
+**demo37**:在gazebo中搭建自己的模型【这个非常吃电脑性能，虚拟机慎重】
+
+**demo38**:URDF、Gazebo、Rviz综合使用
+
+**demo38**:Gazebo多种传感器（雷达、摄像头、深度相机）仿真
+
 **ROSandOpenCV**:ROS和OpenCV的结合使用，发布订阅视频流和单个图片
 
 **SomethingErro/**:记录了一些常见的bug，包括编译和运行过程中的

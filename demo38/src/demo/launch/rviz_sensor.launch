@@ -1,0 +1,8 @@
+<launch>
+    <node pkg="rviz" type="rviz" name="rviz" />
+
+    <!-- 关节以及机器人状态发布节点 -->
+    <node pkg="joint_state_publisher" type="joint_state_publisher" name="joint_state_publisher" />
+    <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" />
+
+</launch>
