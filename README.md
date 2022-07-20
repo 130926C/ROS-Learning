@@ -155,6 +155,10 @@ $ catkin_make
 
 **demo39**:Gazebo多种传感器（雷达、摄像头、深度相机）仿真
 
+**demo40**:仿真环境下的机器人导航（SLAM建图）
+
+**demo41**:仿真环境下的机器人导航（acml定位）
+
 **ROSandOpenCV**:ROS和OpenCV的结合使用，发布订阅视频流和单个图片
 
 **SomethingErro/**:记录了一些常见的bug，包括编译和运行过程中的
