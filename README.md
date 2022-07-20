@@ -159,6 +159,8 @@ $ catkin_make
 
 **demo41**:仿真环境下的机器人导航（acml定位）
 
+**demo42**:仿真环境下的机器人导航（move_base路径规划）
+
 **ROSandOpenCV**:ROS和OpenCV的结合使用，发布订阅视频流和单个图片
 
 **SomethingErro/**:记录了一些常见的bug，包括编译和运行过程中的
