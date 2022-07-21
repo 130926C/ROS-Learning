@@ -1,0 +1,10 @@
+<!-- 集成SLAM和导航 -->
+
+<launch>
+    <!-- SLAM 实现 -->
+    <include file="$(find demo)/launch/nav_slam.launch" />
+
+    <!-- move_base 实现 -->
+    <include file="$(find demo)/launch/move_base_path.launch" />
+
+</launch>
