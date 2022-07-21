@@ -50,6 +50,168 @@ move_base 提供了基于动作（ros action）的路径规划，可以根据指
 3. 集成和导航相关的launch文件；
 4. 运行；
 
-1：35
+同之前的两节一样，在创建功能包的时候需要添加以下几个依赖：
+```txt
+gmapping amcl map_server move_base
+```
 
-https://www.bilibili.com/video/BV1Ci4y1L7ZZ?p=312&spm_id_from=pageDriver&vd_source=c8dbe5ab3b4bf743fae13d455b4aa039 
+----
+
+### **Step 1**：添加参数文件
+
+然后将demo41中的几个文件夹拷贝进来，并在创建一个move_base_path.launch，从 赵虚左 的博客 [ROS入门教程-理论与实践（7.2.4 导航实现04_路径规划）](https://zhuanlan.zhihu.com/p/364310614) 中复制：
+
+**move_base_path.launch**
+```xml
+<launch>
+
+    <node pkg="move_base" type="move_base" respawn="false" name="move_base_node" output="screen" clear_params="true">
+        <rosparam file="$(find demo)/param/costmap_common_params.yaml" command="load" ns="global_costmap" />
+        <rosparam file="$(find demo)/param/costmap_common_params.yaml" command="load" ns="local_costmap" />
+        <rosparam file="$(find demo)/param/local_costmap_params.yaml" command="load" />
+        <rosparam file="$(find demo)/param/global_costmap_params.yaml" command="load" />
+        <rosparam file="$(find demo)/param/base_local_planner_params.yaml" command="load" />
+    </node>
+
+</launch>
+```
+
+根据上面的文件名创建文件，继续从上面的连接中复制内容，并按照自己机器人的情况进行修改。
+
+**costmap_common_params.yaml**
+```yaml
+# 机器人半径，需要考虑到机器人车轮突出的地方
+robot_radius: 0.12 #圆形
+# footprint: [[-0.12, -0.12], [-0.12, 0.12], [0.12, 0.12], [0.12, -0.12]] #其他形状
+
+obstacle_range: 3.0 # 用于障碍物探测，比如: 值为 3.0，意味着检测到距离小于 3 米的障碍物时，就会引入代价地图
+raytrace_range: 3.5 # 用于清除障碍物，比如：值为 3.5，意味着清除代价地图中 3.5 米以外的障碍物
+
+
+#膨胀半径，扩展在碰撞区域以外的代价区域，使得机器人规划路径避开障碍物
+inflation_radius: 0.2
+#代价比例系数，越大则代价值越小
+cost_scaling_factor: 3.0
+
+#地图类型
+map_type: costmap
+#导航包所需要的传感器
+observation_sources: scan
+# 导航坐标系的名称
+scan: {sensor_frame: laser, data_type: LaserScan, topic: scan, marking: true, clearing: true}
+```
+
+**local_costmap_params.yaml**
+```yaml
+local_costmap:
+  global_frame: odom #里程计坐标系
+  robot_base_frame: footprint #机器人坐标系
+
+  update_frequency: 10.0 #代价地图更新频率
+  publish_frequency: 10.0 #代价地图的发布频率
+  transform_tolerance: 0.5 #等待坐标变换发布信息的超时时间
+
+  static_map: false  #不需要静态地图，可以提升导航效果
+  rolling_window: true #是否使用动态窗口，默认为false，在静态的全局地图中，地图不会变化
+  width: 3 # 局部地图宽度 单位是 m
+  height: 3 # 局部地图高度 单位是 m
+  resolution: 0.05 # 局部地图分辨率 单位是 m，一般与静态地图分辨率保持一致
+```
+
+**global_costmap_params.yaml**
+```yaml
+global_costmap:
+  global_frame: map #地图坐标系
+  robot_base_frame: footprint #机器人坐标系
+  # 以此实现坐标变换
+
+  update_frequency: 1.0 #代价地图更新频率
+  publish_frequency: 1.0 #代价地图的发布频率
+  transform_tolerance: 0.5 #等待坐标变换发布信息的超时时间
+
+  static_map: true # 是否使用一个地图或者地图服务器来初始化全局代价地图，如果不使用静态地图，这个参数为false.
+```
+
+**base_local_planner_params.yaml**
+```yaml
+TrajectoryPlannerROS:
+
+# Robot Configuration Parameters
+  max_vel_x: 0.5 # X 方向最大速度
+  min_vel_x: 0.1 # X 方向最小速速
+
+  max_vel_theta:  1.0 # 
+  min_vel_theta: -1.0
+  min_in_place_vel_theta: 1.0
+
+  acc_lim_x: 1.0 # X 加速限制
+  acc_lim_y: 0.0 # Y 加速限制
+  acc_lim_theta: 0.6 # 角速度加速限制
+
+# Goal Tolerance Parameters，目标公差
+  xy_goal_tolerance: 0.10
+  yaw_goal_tolerance: 0.05
+
+# Differential-drive robot configuration
+# 是否是全向移动机器人
+  holonomic_robot: false
+
+# Forward Simulation Parameters，前进模拟参数
+  sim_time: 0.8
+  vx_samples: 18
+  vtheta_samples: 20
+  sim_granularity: 0.05
+```
+
+----
+
+### **Step 2**：集成进launch文件
+
+为了实现导航功能，需要启动地图服务（nav_map_load.launch）、amcl定位（amcl.lacunch）、move_base path（move_base_path.launch）。
+
+**move_base_test.launch**
+```xml
+<launch>
+    <!-- 地图服务 -->
+    <include file="$(find demo)/launch/nav_map_load.launch" />
+    <!-- amcl -->
+    <include file="$(find demo)/launch/amcl.launch" />
+    <!-- move base -->
+    <include file="$(find demo)/launch/move_base_path.launch" />
+
+    <!-- rviz -->
+    <node pkg="joint_state_publisher" name="joint_state_publisher" type="joint_state_publisher" />
+    <node pkg="robot_state_publisher" name="robot_state_publisher" type="robot_state_publisher" />
+    <node pkg="rviz" type="rviz" name="rviz_node" />
+
+</launch>
+```
+
+----
+
+### **Step 3**：测试
+1. 启动gazebo仿真环境；
+2. 启动move_base_test.launch文件；
+3. 在Rviz中添加组建（RobotModel、Map、PoseArray、LaserScan、Odometry）；
+
+在工具栏中选择 "2D Nav Goal" 然后在地图上随便点上一点然后机器人就会自动过去。
+
+【注意】在添加组件的时候可以在 “Display Name” 中修改组件名。
+
+**全局代价地图**：“Add” -> “Map” 选择 “Color Scheme” -> "costmap"。
+
+**本地代价地图**：“Add” -> “Map” 选择 “Color Scheme” -> "map"。
+
+**全局路径规划**：“Add” -> “Path” 选择 “Topic” -> “NavfnROS”。
+
+**本地路径规划**：“Add” -> “Path” 选择 “Topic” -> “local_plan”。
+
+---
+
+为了防止机器人全局路径规划和本地路径规划不符而导致机器人进入膨胀区假死的情况（在noetic本版之前很常见），可以采用以下策略：
+* 全局代价地图可以将膨胀半径和障碍物设置偏大；
+* 本地代价地图可以将膨胀半径和障碍物设置篇小；
+
+这样可以在全局规划时让路径尽可能远离障碍物，而本地路径规划时即使进入了全局膨胀空间也会不会进入本地膨胀空间，避免陷入假死的情况。
+
+在运行过程中可以在 gazebo 中直接添加障碍物，机器人能实现动态避障。

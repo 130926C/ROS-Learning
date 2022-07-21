@@ -1,0 +1,16 @@
+<!-- 集成导航相关的launch文件 -->
+
+<launch>
+    <!-- 地图服务 -->
+    <include file="$(find demo)/launch/nav_map_load.launch" />
+    <!-- amcl -->
+    <include file="$(find demo)/launch/amcl.launch" />
+    <!-- move base -->
+    <include file="$(find demo)/launch/move_base_path.launch" />
+
+    <!-- rviz -->
+    <node pkg="joint_state_publisher" name="joint_state_publisher" type="joint_state_publisher" />
+    <node pkg="robot_state_publisher" name="robot_state_publisher" type="robot_state_publisher" />
+    <node pkg="rviz" type="rviz" name="rviz_node" />
+
+</launch>
