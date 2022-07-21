@@ -1,0 +1,8 @@
+# 目标数据
+int32 target_num
+---
+# 最终反馈
+int32 result_num
+---
+# 连续反馈
+float32 prescent
