@@ -165,6 +165,8 @@ $ catkin_make
 
 [**demo44**](demo44):Action通讯
 
+[**demo45**](demo45):动态参数服务器
+
 [**ROSExperiment**](ROSExperiment):存放了一些关于上面demo的衍生实验
 
 [**ROSandOpenCV**](ROSandOpenCV):ROS和OpenCV的结合使用，发布订阅视频流和单个图片
