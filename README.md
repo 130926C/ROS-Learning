@@ -167,6 +167,8 @@ $ catkin_make
 
 [**demo45**](demo45):动态参数服务器
 
+[**demo46**](demo46):pluginlib插件库
+
 [**ROSExperiment**](ROSExperiment):存放了一些关于上面demo的衍生实验
 
 [**ROSandOpenCV**](ROSandOpenCV):ROS和OpenCV的结合使用，发布订阅视频流和单个图片

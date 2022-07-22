@@ -1,0 +1,17 @@
+<!--
+    需要定位动态链接库 so
+        library path 属性
+    需要生命子类和父类
+        class 
+--> 
+
+<library path="lib/libploygonsPlugin">
+    <class type="polygon_base_ns::Triangle" base_class_type="polygon_base_ns::PolygonBase">
+        <description>This is Triangle</description>
+    </class>
+
+    <class type="polygon_base_ns::Square" base_class_type="polygon_base_ns::PolygonBase" >
+        <description>This is Square</description>
+    </class>
+
+</library>
