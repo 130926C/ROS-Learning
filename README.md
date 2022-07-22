@@ -171,6 +171,8 @@ $ catkin_make
 
 [**demo47**](demo47):nodelet官方案例实现
 
+[**demo48**](demo48):nodelet自定义实现
+
 [**ROSExperiment**](ROSExperiment):存放了一些关于上面demo的衍生实验
 
 [**ROSandOpenCV**](ROSandOpenCV):ROS和OpenCV的结合使用，发布订阅视频流和单个图片

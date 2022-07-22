@@ -1,0 +1,12 @@
+<launch>
+    <node pkg="nodelet" type="nodelet" name="my" args="manager" output="screen" />
+    <node pkg="nodelet" type="nodelet" name="p1" args="load demo/MyPlus my" output="screen">
+        <param name="value" value="100" />
+        <remap from="/p1/out" to="con" />
+    </node>
+    <node pkg="nodelet" type="nodelet" name="p2" args="load demo/MyPlus my" output="screen">
+        <param name="value" value="-50" />
+        <remap from="/p2/in" to="con" />
+    </node>
+
+</launch>
