@@ -1,0 +1,17 @@
+<launch>
+    <!-- 启动管理器 -->
+    <node pkg="nodelet" type="nodelet" args="manager" name="sun" output="screen" />
+
+    <!-- 启动wang-->
+    <node pkg="nodelet" type="nodelet" args="load nodelet_tutorial_math/Plus sun" name="wang" output="screen">
+        <param name="value" value="100" />
+        <!-- 将 wang 的输出作为 zhang的输入 -->
+        <remap from="/wang/out" to="/zhang/in" />
+    </node>
+
+    <!-- 启动zhang -->
+    <node pkg="nodelet" type="nodelet" args="load nodelet_tutorial_math/Plus sun" name="zhang" output="screen" >
+        <param name="value" value="67" />
+    </node>
+
+</launch>
