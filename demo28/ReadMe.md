@@ -33,7 +33,7 @@ URDF 是一个标准的 XML 文件，在 ROS 中预定义了一系列用来描�
 		
 			<!-- 形状 -->
 			<geometry>
-				<!-- 可以选择下面任意一个添加 -->
+				<!-- 可以选择下面四个中任意一个添加 -->
 				<box size="0.3 0.2 0.1" />
 				<cylinder radius="0.1" length="2" />
 				<sphere radius="1" />
