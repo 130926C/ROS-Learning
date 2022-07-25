@@ -55,6 +55,8 @@ size_num = gen.enum([
     "select from the list"    
 )
 
+gen.add("size", int_t, 0, "select size", 1, 0, 3, edit_method=size_enum)
+
 # 推出并生成中间件
 exit(gen.generate("demo", "config_node", "dynamic_config"))
 ```
