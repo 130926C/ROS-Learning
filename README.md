@@ -173,8 +173,17 @@ $ catkin_make
 
 [**demo48**](demo48):nodelet自定义实现
 
-[**ROSExperiment**](ROSExperiment):存放了一些关于上面demo的衍生实验
+[**PathPlaining**](PathPlaining):多种路径规划算法（未结合ROS）（未完）
 
 [**ROSandOpenCV**](ROSandOpenCV):ROS和OpenCV的结合使用，发布订阅视频流和单个图片
 
+[**ROSExperiment**](ROSExperiment):存放了一些关于上面demo的衍生实验
+
+[**ROSKinectV2**](ROSKinectV2):ROS和KinectV2硬件结合
+
+[**ROSusbCamera**](ROSusbCamera):ROS调用本地或usb摄像头
+
 [**SomethingErro**](SomthingErro):记录了一些常见的bug，包括编译和运行过程中的
+
+
+
