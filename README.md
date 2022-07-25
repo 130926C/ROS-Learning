@@ -173,7 +173,7 @@ $ catkin_make
 
 [**demo48**](demo48):nodelet自定义实现
 
-[**PathPlaining**](PathPlaining):多种路径规划算法（未结合ROS）（未完）
+[**PathPlanning**](PathPlanning):多种路径规划算法（未结合ROS）（未完）
 
 [**ROSandOpenCV**](ROSandOpenCV):ROS和OpenCV的结合使用，发布订阅视频流和单个图片
 
