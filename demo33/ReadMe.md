@@ -157,11 +157,11 @@ $ catkin_make
 ./vscode/c_cpp_properties.json
 
 ```json
-      "includePath": [
-        "/opt/ros/melodic/include/**",
-        "/usr/include/**",
-        "/home/gaohao/Desktop/ROS-Learning/demo33/devel/include"
-      ]
+"includePath": [
+      "/opt/ros/melodic/include/**",
+      "/usr/include/**",
+      "/home/gaohao/Desktop/ROS-Learning/demo33/devel/include"
+  ]
 ```
 
 -----
