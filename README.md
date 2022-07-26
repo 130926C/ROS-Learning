@@ -177,6 +177,8 @@ $ catkin_make
 
 [**ROSandCVFaceDetect**](ROSandCVFaceDetect/):ROS调用笔记本摄像头实现人脸检测
 
+[**ROSandObjectDetection**](ROSandObjectDetection/):ROS调用笔记本摄像头进行物体检测
+
 [**ROSandOpenCV**](ROSandOpenCV):ROS和OpenCV的结合使用，发布订阅视频流和单个图片
 
 [**ROSExperiment**](ROSExperiment):存放了一些关于上面demo的衍生实验
