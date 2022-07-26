@@ -175,6 +175,8 @@ $ catkin_make
 
 [**PathPlanning**](PathPlanning):多种路径规划算法（未结合ROS）（未完）
 
+[**ROSandCVFaceDetect**](ROSandCVFaceDetect/):ROS调用笔记本摄像头实现人脸检测
+
 [**ROSandOpenCV**](ROSandOpenCV):ROS和OpenCV的结合使用，发布订阅视频流和单个图片
 
 [**ROSExperiment**](ROSExperiment):存放了一些关于上面demo的衍生实验
