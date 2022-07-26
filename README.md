@@ -187,5 +187,7 @@ $ catkin_make
 
 [**SomethingErro**](SomthingErro):记录了一些常见的bug，包括编译和运行过程中的
 
+[**ROSandQRRecognition**](ROSandQRRecognition/):ROS和二维码识别
+
 
 
