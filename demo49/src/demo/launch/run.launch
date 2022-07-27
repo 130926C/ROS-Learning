@@ -1,0 +1,9 @@
+<launch>
+    <param name="/use_sim_time" value="false"/>
+      <node pkg="rviz" type="rviz" name="rviz"/>
+    <include file="$(find demo)/launch/hector_mapping.launch"/>
+
+    <include file="$(find demo)/launch/geotiff_mapper.launch">
+      <arg name="trajectory_source_frame_name" value="scanmatcher_frame"/>
+    </include>
+</launch>

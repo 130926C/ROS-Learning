@@ -155,7 +155,7 @@ $ catkin_make
 
 [**demo39**](demo39):Gazebo多种传感器（雷达、摄像头、深度相机）仿真
 
-[**demo40**](demo40):仿真环境下的机器人导航（SLAM建图）
+[**demo40**](demo40):仿真环境下的机器人导航（SLAM建图-Gmapping）
 
 [**demo41**](demo41):仿真环境下的机器人导航（acml定位）
 
@@ -172,6 +172,8 @@ $ catkin_make
 [**demo47**](demo47):nodelet官方案例实现
 
 [**demo48**](demo48):nodelet自定义实现
+
+[**demo49**](demo49):仅使用真实的激光雷达数据建图（Hector建图）
 
 [**PathPlanning**](PathPlanning):多种路径规划算法（未结合ROS）（未完）
 
