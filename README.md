@@ -175,6 +175,8 @@ $ catkin_make
 
 [**demo49**](demo49):仅使用真实的激光雷达数据建图（Hector建图）
 
+[**demo50**](demo50/):ROS分布式主从机配置
+
 [**PathPlanning**](PathPlanning):多种路径规划算法（未结合ROS）（未完）
 
 [**ROSandCVFaceDetect**](ROSandCVFaceDetect/):ROS调用笔记本摄像头实现人脸检测
