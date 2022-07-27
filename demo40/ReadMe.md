@@ -215,6 +215,11 @@ $ roscore
 
 ### 保存地图
 
+为了保存地图需要安装 ROS 的地图服务：
+```shell
+$ sudo apt-get install ros-melodic-map-server
+```
+
 为了将机器人获取到的地图信息保存到本地磁盘上，需要写一个保存地图的launch文件：
 
 **nav_map_save.launch**

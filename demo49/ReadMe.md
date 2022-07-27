@@ -4,7 +4,7 @@
 
 首先需要安装 ROS 的 Hector 功能包。
 ```shell
-$ sudo apt-get install ros-medolic-hector-slam
+$ sudo apt-get install ros-melodic-hector-slam
 ```
 
 在ROS的SLAM中提供了多种建图和定位算法，初学者容易搞混建图、导航、定位这三者的区别。ROS将这部分分成了两个模块：SLAM和Navgiation，其中建图和定位被划归到SLAM上。
