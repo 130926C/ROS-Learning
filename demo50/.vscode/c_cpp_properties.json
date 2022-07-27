@@ -1,0 +1,28 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/gaohao/catkin_ws/devel/include/**",
+        "/opt/ros/melodic/include/**",
+        "/home/gaohao/catkin_ws/src/ddynamic_reconfigure/include/**",
+        "/home/gaohao/catkin_ws/src/iai_kinect2/kinect2_bridge/include/**",
+        "/home/gaohao/catkin_ws/src/iai_kinect2/kinect2_calibration/include/**",
+        "/home/gaohao/catkin_ws/src/iai_kinect2/kinect2_registration/include/**",
+        "/home/gaohao/catkin_ws/src/realsense-ros/realsense2_camera/include/**",
+        "/home/gaohao/catkin_ws/src/scout_ros/scout_base/include/**",
+        "/home/gaohao/catkin_ws/src/ugv_sdk/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}

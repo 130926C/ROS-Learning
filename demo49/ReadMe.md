@@ -7,9 +7,7 @@
 $ sudo apt-get install ros-melodic-hector-slam
 ```
 
-在ROS的SLAM中提供了多种建图和定位算法，初学者容易搞混建图、导航、定位这三者的区别。ROS将这部分分成了两个模块：SLAM和Navgiation，其中建图和定位被划归到SLAM上。
-
-【注意】建图和导航是两个步骤。
+【注意】建图、定位、导航是三个不同的步骤。
 
 ROS官方也集成了多种不同的SLAM功能包，下面是最常用的三种解决方案和需要的输入数据：
 * Gmapping：laser + odom
