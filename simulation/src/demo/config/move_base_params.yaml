@@ -1,0 +1,32 @@
+shutdown_costmaps: false
+
+controller_frequency: 10.0
+controller_patience: 1.0 #1.0
+
+planner_frequency: 1.0
+planner_patience: 1.0
+
+oscillation_timeout: 1.0
+oscillation_distance: 0.2
+
+# official:
+#           base_local_planner/TrajectoryPlannerROS                     Local
+#           navfn/NavfnROS                                              Global
+# third part:
+#           waypoint_global_planner/WaypointGlobalPlanner       True    Global
+#           voronoi_planner/VoronoiPlanner                      True    Global
+#           pure_persuit_local_planner/PurePersuitLocalPlanner  True    Local
+#           hybrid_astar_planner/HybridAStarPlanner             True    Global    Unstable
+#           full_coverage_path_planner/SpiralSTC                True    Global    Unstable
+#           voronoi_planner/VoronoiPlanner                      True    Global
+#           mpc_local_planner/MpcLocalPlannerROS                True    Local
+#           rrt_star_global_planner/RRTStarPlanner              True    Global
+#           eband_local_planner/EBandPlannerROS                 True    Local
+#           arips_local_planner/AripsPlannerROS                 True    Local     Unstable
+
+base_local_planner: pure_persuit_local_planner/PurePersuitLocalPlanner
+base_global_planner: navfn/NavfnROS
+
+recovery_behavior_enabled: true
+recovery_behaviors: [{"name":"super_conservative_reset1", "type":"clear_costmap_recovery/ClearCostmapRecovery"}]
+reset_distance: 5.0

@@ -1,0 +1,53 @@
+<robot name="my_car_move" xmlns:xacro="http://wiki.ros.org/xacro">
+
+    <!-- 传动实现:用于连接控制器与关节 -->
+    <xacro:macro name="joint_trans" params="joint_name">
+        <!-- Transmission is important to link the joints and the controller -->
+        <transmission name="${joint_name}_trans">
+            <type>transmission_interface/SimpleTransmission</type>
+            <joint name="${joint_name}">
+                <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+            </joint>
+            <actuator name="${joint_name}_motor">
+                <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+                <mechanicalReduction>1</mechanicalReduction>
+            </actuator>
+        </transmission>
+    </xacro:macro>
+
+    <!-- 每一个驱动轮都需要配置传动装置 -->
+    <!-- 【注意】需要修改的地方是这里，意思是传动关节的名称 -->
+    <!-- 在car_base.xacro 中找到驱动轮的 joint 宏 ${wheel_name}_joint_base-->
+    <!-- 将这块写死，${wheel_name} 就用下面的调用 xacro:drive_wheel_func 中的 name -->
+    <xacro:joint_trans joint_name="front_left_wheel" />  
+    <xacro:joint_trans joint_name="rear_left_wheel" />
+    <xacro:joint_trans joint_name="front_right_wheel" />
+    <xacro:joint_trans joint_name="rear_right_wheel" />
+
+
+    <!-- 控制器 -->
+    <gazebo>
+        <plugin name="skid_steer_drive_controller" filename="libgazebo_ros_skid_steer_drive.so">
+            <rosDebugLevel>Debug</rosDebugLevel>
+            <publishWheelTF>true</publishWheelTF>
+            <robotNamespace>/</robotNamespace>
+            <publishTf>1</publishTf>
+            <publishWheelJointState>true</publishWheelJointState>
+            <updateRate>100.0</updateRate>
+            <leftFrontJoint>front_left_wheel</leftFrontJoint>
+            <leftRearJoint>rear_left_wheel</leftRearJoint>
+            <rightFrontJoint>front_right_wheel</rightFrontJoint>
+            <rightRearJoint>rear_right_wheel</rightRearJoint>
+            <wheelSeparation>0.62</wheelSeparation>
+            <wheelDiameter>${2*wheel_radius}</wheelDiameter>
+            <broadcastTF>1</broadcastTF>
+            <torque>100</torque>
+            <commandTopic>cmd_vel</commandTopic>
+            <odometryFrame>odom</odometryFrame> 
+            <odometryTopic>odom</odometryTopic> 
+            <robotBaseFrame>base_footprint</robotBaseFrame>
+        </plugin>
+    </gazebo> 
+
+
+</robot>

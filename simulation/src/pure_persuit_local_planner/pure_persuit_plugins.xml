@@ -1,0 +1,10 @@
+<library path="lib/libpure_persuit_local_planner">
+  <class name="pure_persuit_local_planner/PurePersuitLocalPlanner" 
+  		 type="pure_persuit_local_planner::PurePersuitLocalPlanner"
+  		 base_class_type="nav_core::BaseLocalPlanner">
+    <description>
+      An implementation of a patrol local planner using Pure Persuit.
+    </description>
+  </class>
+</library>
+

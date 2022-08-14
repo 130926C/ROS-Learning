@@ -1,0 +1,25 @@
+<launch>
+
+    <arg name="robot_namespace" default="/"/>
+    <arg name="world_name" default="$(find demo)worlds/gallary/gallary40m.world"/>
+
+    <!-- world -->
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <arg name="world_name" value="$(arg world_name)"/>
+        <arg name="paused" value="false"/>
+        <arg name="use_sim_time" value="true"/>
+        <arg name="gui" value="true"/>
+        <arg name="headless" value="false"/>
+        <arg name="debug" value="false"/>
+    </include>
+    
+    <!-- car base 套娃到 src/ugv_gazebo_sim/scout/scout_description/urdf/mini.xacro 文件 -->
+    <include file="$(find scout_gazebo_sim)/launch/spawn_scout_mini.launch" />
+
+    <!-- joint state -->
+    <node pkg="joint_state_publisher" name="joint_state_publisher" type="joint_state_publisher" />
+
+    <!-- rviz -->
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find demo)/rviz/navigation.rviz" />
+
+</launch>

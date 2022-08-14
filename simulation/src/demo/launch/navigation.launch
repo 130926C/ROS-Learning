@@ -1,0 +1,15 @@
+<launch>
+    <!-- map server for load map-->
+    <arg name="map_name" default="gallary40m.yaml" />
+    <node name="map_server" pkg="map_server" type="map_server" args="$(find demo)/maps/$(arg map_name)"/>
+
+    <!-- car & gazebo -->
+    <include file="$(find demo)/launch/car.launch" />
+
+    <!-- amcl -->
+    <include file="$(find demo)/launch/amcl.launch" />
+    
+    <!-- move_base -->
+    <include file="$(find demo)/launch/move_base.launch" />
+
+</launch>

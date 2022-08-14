@@ -1,0 +1,5 @@
+<launch>
+    <arg name="map_name" default="gallary50m.yaml" />
+
+    <node name="map_server" pkg="map_save" args="-f $(find demo)/maps/$(arg map_name)">
+</launch>

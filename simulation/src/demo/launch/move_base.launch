@@ -1,0 +1,18 @@
+<launch>
+
+    <node pkg="move_base" type="move_base" respawn="false" name="move_base_node" output="screen" clear_params="true">
+        <!-- move_base params -->
+        <rosparam file="$(find demo)/config/move_base_params.yaml" command="load" />
+
+        <!-- cost map -->
+        <rosparam file="$(find demo)/config/costmap_common_params.yaml" command="load" ns="global_costmap" />
+        <rosparam file="$(find demo)/config/costmap_common_params.yaml" command="load" ns="local_costmap" />
+        <rosparam file="$(find demo)/config/local_costmap_params.yaml" command="load" />
+        <rosparam file="$(find demo)/config/global_costmap_params.yaml" command="load" />
+
+        <!-- planner -->
+        <!-- <rosparam file="$(find demo)/config/base_local_planner.yaml" command="load" /> -->
+        <!-- <rosparam file="$(find demo)/param/global_planner_params.yaml" command="load" /> -->
+    </node>
+
+</launch>

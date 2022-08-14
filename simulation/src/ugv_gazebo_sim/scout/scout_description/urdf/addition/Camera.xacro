@@ -1,0 +1,88 @@
+<robot name="usbcam" xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <xacro:property name="camera_length" value="0.02" />
+    <xacro:property name="camera_width" value="0.15" />
+    <xacro:property name="camera_height" value="0.04" />
+    <!-- 添加质量 -->
+    <xacro:property name="camera_mass" value="0.02" />
+
+    <xacro:property name="camera_x_bias" value="0.08" />
+    <xacro:property name="camera_y_bias" value="0" />
+    <xacro:property name="camera_z_bias" value="${car_base_hight / 2 + camera_height / 2}" />
+
+    <xacro:property name="PI" value="3.1415926" />
+
+
+    <xacro:macro name="Box_inertial_matrix" params="m l w h">
+        <inertial>
+                <mass value="${m}" />
+                <inertia ixx="${m*(h*h + l*l)/12}" ixy = "0" ixz = "0" iyy="${m*(w*w + l*l)/12}" iyz= "0" izz="${m*(w*w + h*h)/12}" />
+        </inertial>
+    </xacro:macro>
+
+    <link name="usbcam_link">
+        <visual>
+            <geometry>
+                <box size="${camera_length} ${camera_width} ${camera_height}" />
+            </geometry>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <material name="camera_color">
+                <color rgba="1 1 1 0.5" />
+            </material>
+        </visual>
+        <!-- 添加碰撞检测 -->
+        <collision>
+            <geometry>
+                <box size="${camera_length} ${camera_width} ${camera_height}" />
+            </geometry>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+        </collision>
+        <!-- 惯性矩阵 -->
+        <xacro:Box_inertial_matrix m="${camera_mass}" l="${camera_length}" w="${camera_width}" h="${camera_height}" />
+    </link>
+
+    <!-- 添加颜色 -->
+    <gazebo reference="usbcam_link" >
+        <material>Gazebo/Gray</material>
+    </gazebo>   
+
+    <gazebo reference="usbcam_link">  
+        <sensor type="depth" name="camera">
+            <always_on>true</always_on>
+            <update_rate>20.0</update_rate>
+            <camera>
+                <horizontal_fov>${60.0*PI/180.0}</horizontal_fov>
+                <image>
+                    <format>R8G8B8</format>
+                    <width>640</width>
+                    <height>480</height>
+                </image>
+                <clip>
+                    <near>0.05</near>
+                    <far>8.0</far>
+                </clip>
+            </camera>
+            <plugin name="kinect_camera_controller" filename="libgazebo_ros_openni_kinect.so">
+                <!-- 相机数据输出的topic名 -->
+                <cameraName>depth_camera</cameraName>
+                <alwaysOn>true</alwaysOn>
+                <updateRate>10</updateRate>
+                <imageTopicName>rgb/image_raw</imageTopicName>  <!-- 深度相机也具备一般摄像头的功能，也可以采集一般图像 -->
+                <depthImageTopicName>depth/image_raw</depthImageTopicName>
+                <pointCloudTopicName>depth/points</pointCloudTopicName>
+                <cameraInfoTopicName>rgb/camera_info</cameraInfoTopicName>
+                <depthImageCameraInfoTopicName>depth/camera_info</depthImageCameraInfoTopicName>
+                <!-- 此处为连杆名 -->
+                <!-- 此处的修改是为了后面点云坐标系调整 -->
+                <frameName>usbcam_link</frameName>
+                <baseline>0.1</baseline>
+                <distortion_k1>0.0</distortion_k1>
+                <distortion_k2>0.0</distortion_k2>
+                <distortion_k3>0.0</distortion_k3>
+                <distortion_t1>0.0</distortion_t1>
+                <distortion_t2>0.0</distortion_t2>
+                <pointCloudCutoff>0.4</pointCloudCutoff>
+            </plugin>
+        </sensor>
+    </gazebo>
+
+</robot>

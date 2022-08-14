@@ -1,0 +1,14 @@
+# robot_radius: 0.12 #圆形
+footprint: [ [-0.465,-0.350], [0.465,-0.350], [0.465,0.350], [-0.465,0.350] ]
+footprint_padding: 0.01
+
+obstacle_range: 3.0
+raytrace_range: 3.5
+
+
+inflation_radius: 0.2
+cost_scaling_factor: 3.0
+
+map_type: costmap
+observation_sources: scan
+scan: {sensor_frame: 2Dlaser_link, data_type: LaserScan, topic: scan, marking: true, clearing: true}
